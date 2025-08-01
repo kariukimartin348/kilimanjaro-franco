@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Animate send button on contact form submit
+  
     var contactForm = document.querySelector('#contact form');
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
@@ -9,12 +9,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 sendBtn.classList.add('sending');
                 sendBtn.textContent = 'Sending...';
             }
-            // Collect form data
+           
             var name = contactForm.querySelector('input[placeholder="Your Name"]').value;
             var email = contactForm.querySelector('input[placeholder="Your Email"]').value;
             var location = contactForm.querySelector('input[placeholder="Your Location"]').value;
             var message = contactForm.querySelector('textarea[placeholder="Message"]').value;
-            // Send to backend
+            
             fetch('http://localhost:3000/contact', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -34,13 +34,13 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     }
-    // Fade in hero section
+    
 
     var hero = document.getElementById('home');
     if (hero) {
         hero.classList.add('fade-in');
     }
-    // Add to Cart button feedback
+    
     document.querySelectorAll('#shop button').forEach(function(btn) {
         btn.addEventListener('click', function(e) {
             btn.classList.add('clicked');
@@ -52,9 +52,9 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Cart logic
+    
     var cart = [];
-    // Load cart from localStorage if available
+    
     var savedCart = localStorage.getItem('cart');
     if (savedCart) {
         try {
@@ -82,7 +82,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Navigation logic to show/hide sections
     navLinks.forEach(function(link) {
         link.addEventListener('click', function(e) {
             var target = link.getAttribute('href').replace('#', '');
@@ -124,7 +123,7 @@ document.addEventListener('DOMContentLoaded', function() {
         cartItemsDiv.innerHTML = html;
         cartTotalDiv.textContent = 'Total: $' + total.toFixed(2);
     }
-    // Cart 'Contact Us to Order' button navigation
+   
     var contactOrderBtn = document.querySelector('#cart a[href="#contact"]');
     if (contactOrderBtn) {
         contactOrderBtn.addEventListener('click', function(e) {
